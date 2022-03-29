@@ -1,0 +1,51 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+	int time, j = 0, signal = 0;
+	cin >> time;
+	string str[10];
+	int num[10];
+	for (int i = 0; i < time; i++)
+	{
+		cin >> str[i];
+		for (int j = 0; str[i][j] != '\0'; j++)
+		{
+			num[i] = j;
+		}
+	}
+	
+	for (int i = 0; i < time; i++)
+	{
+		int flag = 0;
+		j = 0;
+		signal = 0;
+		while (j <= num[i])
+		{
+			if (str[i][j] == '(')
+			{
+				flag = 1;
+				signal++;
+			}
+			else
+			{
+				if (flag == 1)
+				{
+					signal--;
+				}
+			}
+			j++;
+		}
+		if (signal == 0)
+		{
+			cout << "TRUE" ;
+		}
+		else
+		{
+			cout << "FALSE" ;
+		}
+		cout << endl;
+	}
+	return 0;
+}
